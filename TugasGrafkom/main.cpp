@@ -35,7 +35,34 @@ static int light0 =1, light1=1, light2=1;
    GLUquadricObj *pobj;
 //Deklarasi Fungsi
 
+void uplampstander(void){
+    glColor3f (0.2, 0.2, 0.2); 
+    pobj=gluNewQuadric();
+    gluQuadricDrawStyle(pobj,GLU_FILL);//Penunjukan model(GL_POINT,GL_LINE or GL_FILL)
+    gluCylinder( pobj,0.06,0.06, 0.6,36,16);
+}
 
+
+void lampshade(void){
+ glColor3f (0.6, 0.6, 0.8);
+    pobj=gluNewQuadric();
+    gluQuadricDrawStyle(pobj,GLU_FILL);//indicate draw model(GL_POINT,GL_LINE or GL_FILL)
+    gluCylinder( pobj,0.6,0.2,0.2,36,16); //Cylinder
+}
+
+void lampshadecover(void){
+    glColor3f (0.6, 0.6, 0.6);
+    glutSolidSphere (0.16,16,16);
+    glColor3f (0.6, 0.6, 0.8);
+    pobj=gluNewQuadric();
+    gluQuadricDrawStyle(pobj,GLU_FILL);//Penunjukan model(GL_POINT,GL_LINE or GL_FILL)
+    gluDisk( pobj,0.0,0.2,36,16);  //Circle disk
+}
+
+void solidsphere(void){
+ glTranslatef(0.0, 0.0, ball_z);
+    glutSolidSphere(0.2,36,36);
+}s
 
 void teapot(void){
  glTranslatef(0.0, -0.5, 1.0);
