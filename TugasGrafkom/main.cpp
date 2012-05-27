@@ -89,7 +89,46 @@ void lampshadecover(void){
 void solidsphere(void){
  glTranslatef(0.0, 0.0, ball_z);
     glutSolidSphere(0.2,36,36);
-}s
+}
+
+void torus(void){
+    glMaterialfv(GL_FRONT, GL_AMBIENT, normal_mat_ambient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, normal_mat_diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, normal_mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, normal_mat_shininess);
+    glutSolidTorus (0.125, 0.45, 8, 35);
+}
+
+void cylinder(void){
+ glTranslatef(1.0, 0.0, 2.8);
+    glMaterialfv(GL_FRONT, GL_AMBIENT, cy_mat_ambient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, cy_mat_diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, cy_mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, cy_mat_shininess);
+    pobj=gluNewQuadric();
+    gluQuadricDrawStyle(pobj,GLU_FILL);//Penunjukan model(GL_POINT,GL_LINE or GL_FILL)
+    gluCylinder( pobj,0.6,0.6,0.2,36,36); //Cylinder
+}
+
+void wirecone(void){
+     glRotatef(-90,1.0,0.0,0.0);
+     glMaterialfv(GL_FRONT, GL_AMBIENT, normal_mat_ambient);
+     glMaterialfv(GL_FRONT, GL_DIFFUSE, normal_mat_diffuse);
+     glMaterialfv(GL_FRONT, GL_SPECULAR, normal_mat_specular);
+     glMaterialfv(GL_FRONT, GL_SHININESS, normal_mat_shininess);
+     glutWireCone(0.3,0.5,16,36);
+} 
+
+void wiresphere(void){
+ glTranslatef(0.0, 0.9, 0.0);
+    glMaterialfv(GL_FRONT, GL_AMBIENT, normal_mat_ambient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, normal_mat_diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, normal_mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, normal_mat_shininess);
+    pobj=gluNewQuadric();
+    gluQuadricDrawStyle(pobj,GLU_LINE);//Penunjukan model(GLU_LINE)
+    gluSphere(pobj,0.4,40,40);
+}
 
 void teapot(void){
  glTranslatef(0.0, -0.5, 1.0);
