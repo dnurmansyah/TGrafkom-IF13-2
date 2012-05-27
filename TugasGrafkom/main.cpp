@@ -35,6 +35,33 @@ static int light0 =1, light1=1, light2=1;
    GLUquadricObj *pobj;
 //Deklarasi Fungsi
 
+void desk(void){
+ glMaterialfv(GL_FRONT, GL_AMBIENT, desk_mat_ambient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, desk_mat_diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, desk_mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, desk_mat_shininess);
+    glutSolidCube(1.0);
+}
+
+void lampholder(void){
+ glColor3f (0.2, 0.6, 0.8);
+    pobj=gluNewQuadric();
+    gluQuadricDrawStyle(pobj,GLU_FILL);//Penunjukan model(GL_POINT,GL_LINE or GL_FILL)
+    gluCylinder( pobj,0.5,0.06,0.1,36,16); //Cylinder
+}
+
+void downlampstander(void){
+ glColor3f (0.2, 0.2, 0.2);
+    pobj=gluNewQuadric();
+    gluQuadricDrawStyle(pobj,GLU_FILL);//Penunjukan model(GL_POINT,GL_LINE or GL_FILL)
+    gluCylinder( pobj,0.06,0.06, light_z,36,16); //Cylinder
+}
+
+void connectionball(void){
+ glColor3f (0.2, 0.2, 0.6); 
+    glutSolidSphere(0.1,36,36);
+}
+
 void uplampstander(void){
     glColor3f (0.2, 0.2, 0.2); 
     pobj=gluNewQuadric();
